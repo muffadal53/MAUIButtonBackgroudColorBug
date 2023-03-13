@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:MAUIButtonBackgroudColorBug.Resources;assembly=MAUIButtonBackgroudColorBug"
+             xmlns:converters="clr-namespace:MAUIButtonBackgroudColorBug.Converters;assembly=MAUIButtonBackgroudColorBug"
+             x:Class="MAUIButtonBackgroudColorBug.MainPage">
+
+    <ContentPage.Resources>
+        <converters:FromBoolToCustomValueConverter x:Key="BoolToBorderColor"
+                                                   ValueIfTrue="Yellow"
+                                                   ValueIfFalse="Transparent"/>
+        <converters:FromBoolToCustomValueConverter x:Key="BoolToTextColor"
+                                                   ValueIfTrue="Green"
+                                                   ValueIfFalse="#4c3c3c43"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+           <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="mycheckBox" CheckedChanged="OnCheckBoxCheckedChanged" IsChecked="{Binding IsChecked,Mode=TwoWay}"/>
+                <Label VerticalTextAlignment="Center" Text="AlterButtonEnabledAndColor">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <Button x:Name="ColorNotAppliedBtn"
+                Text="UsingConverters_Colors_NotAppliedButton"
+                HorizontalOptions="FillAndExpand"
+                TextColor="{Binding ChangeButtonColor, Converter={StaticResource BoolToTextColor}}"
+                BackgroundColor="{Binding ChangeButtonColor, Converter={StaticResource BoolToBorderColor}}" 
+                Background="{Binding ChangeButtonColor, Converter={StaticResource BoolToBorderColor}}" 
+                IsEnabled="{Binding ChangeButtonColor}"
+                Clicked="ColorNotAppliedBtnClicked"/>
+
+
+            <Button
+                Margin="0,40,0,0"
+                x:Name="ColorAppliedBtn"
+                Text="StaticColors_GettingAppliedButton"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Green"
+                BackgroundColor="Yellow"
+                IsEnabled="true"
+                Clicked="ColorAppliedBtnClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
