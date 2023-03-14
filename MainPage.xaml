@@ -49,6 +49,16 @@
                 IsEnabled="true"
                 Clicked="ColorAppliedBtnClicked"/>
 
+            <Button
+                Margin="0,40,0,0"
+                x:Name="BindingColorAppliedBtn"
+                Text="BindingColor_GettingAppliedButton"
+                HorizontalOptions="FillAndExpand"
+                TextColor="White"
+                BackgroundColor="{Binding color}"
+                IsEnabled="true"
+                Clicked="BindingColorAppliedBtnClicked"/>
+
         </VerticalStackLayout>
     </ScrollView>
 

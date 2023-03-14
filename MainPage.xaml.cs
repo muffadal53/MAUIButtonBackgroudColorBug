@@ -38,6 +38,11 @@ public partial class MainPage : ContentPage
         DisplayAlert("Applied Color Button", "ColorAppliedBtn is Clicked", "OK");
     }
 
+    private void BindingColorAppliedBtnClicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Binding Applied Color Button", "BindingColorAppliedBtn is Clicked", "OK");
+    }
+
     private void ColorNotAppliedBtnClicked(object sender, EventArgs e)
     {
         DisplayAlert("Not Applied Color Button", "ColorNotAppliedBtn is Clicked", "OK");
