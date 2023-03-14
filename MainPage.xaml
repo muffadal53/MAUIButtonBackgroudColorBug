@@ -34,7 +34,6 @@
                 HorizontalOptions="FillAndExpand"
                 TextColor="{Binding ChangeButtonColor, Converter={StaticResource BoolToTextColor}}"
                 BackgroundColor="{Binding ChangeButtonColor, Converter={StaticResource BoolToBorderColor}}" 
-                Background="{Binding ChangeButtonColor, Converter={StaticResource BoolToBorderColor}}" 
                 IsEnabled="{Binding ChangeButtonColor}"
                 Clicked="ColorNotAppliedBtnClicked"/>
 
